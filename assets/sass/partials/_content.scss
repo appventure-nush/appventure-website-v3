@@ -1,0 +1,84 @@
+main {
+	padding: 0 2rem;
+	margin-bottom: 6rem !important;
+	@include paragraphing(main);
+	min-height: 60vh;
+
+	h1, h2 {
+		margin-top: 4rem;
+	}
+
+  header {
+    text-align: center;
+    @include font-type(header);
+    padding: 1em 3em;
+  }
+
+  footer {
+    text-align: right;
+    color: palette(text-blur);
+    @include font-size(subtext);
+  }
+
+  .apps {
+    text-align: center;
+  }
+
+  .authors {
+    //@include font-size(medium);
+    @include font-type(authors);
+  }
+
+  .achievement-header {
+    margin-bottom: 0;
+  }
+
+  .achievements ul {
+    margin-top: 0;
+    padding-left: 1em;
+    @include font-size(subtext);
+
+    &.plain {
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+
+  .content {
+    @extend p;
+    ul,
+    ol {
+      padding-left: 1em;
+    }
+  }
+
+  .pull-right {
+    float: right;
+  }
+  .pull-left {
+    float: left;
+  }
+
+  .clearfix {
+    clear: both;
+  }
+
+  .w50 {
+    width: 50%;
+  }
+  .w30 {
+    width: 30%;
+  }
+  .w25 {
+    width: 25%;
+  }
+  .w23 {
+    width: 23%;
+  }
+  .w20 {
+    width: 20%;
+  }
+  .w15 {
+    width: 15%;
+  }
+}
