@@ -1,0 +1,86 @@
+{
+  "connection": "default",
+  "collectionName": "apps",
+  "info": {
+    "name": "app",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "ShortDescription": {
+      "type": "text",
+      "maxLength": 100,
+      "required": true
+    },
+    "Content": {
+      "type": "text",
+      "required": true
+    },
+    "Authors": {
+      "type": "string"
+    },
+    "Achievements": {
+      "type": "text"
+    },
+    "PlatformsSupported": {
+      "enum": [
+        "Web",
+        "Desktop",
+        "Mobile"
+      ],
+      "type": "enumeration"
+    },
+    "Year": {
+      "enum": [
+        "Year 1",
+        "Year 2",
+        "Year 3",
+        "Year 4",
+        "Year 5",
+        "Year 6"
+      ],
+      "type": "enumeration"
+    },
+    "Type": {
+      "enum": [
+        "None",
+        "Competition",
+        "By Request",
+        "Personal",
+        "CS Module"
+      ],
+      "type": "enumeration"
+    },
+    "Links": {
+      "type": "string"
+    },
+    "Downloads": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "Icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "Screenshots": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "Featured": {
+      "type": "boolean"
+    }
+  }
+}

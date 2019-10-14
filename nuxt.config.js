@@ -1,6 +1,12 @@
 // TODO {{ if .Title }} {{ .Title }} - AppVenture {{ else if .Item }} {{ .Item.Name }} - AppVenture {{ else }} AppVenture {{ end }}
 
 export default {
+	modules: [
+		'@nuxtjs/axios'
+	],
+	axios: {
+		baseURL: 'http://localhost:8081/'
+	},
 	head: {
 		titleTemplate: 'Appventure',
 		meta: [{

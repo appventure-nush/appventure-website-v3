@@ -13,10 +13,15 @@ Requirements :
 * Node.js
 
 ```bash
-git clone git@github.com:appventure-nush/appventure-website.git
-cd appventure-website
+git clone git@github.com:appventure-nush/appventure-website-v3.git
+cd appventure-website-v3
 # install necessary packages
 npm install
-# run dev build
+# install strapi globally
+npm install strapi@alpha -g
+# run frontend
 npm run dev
+# run strapi
+cd cms
+strapi run
 ```

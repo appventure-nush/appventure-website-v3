@@ -24,8 +24,10 @@
 
 <script>
 export default {
-	data: {
-		Jumbo: true
+	data() {
+		return {
+			Jumbo: true
+		}
 	}
 }
 </script>
