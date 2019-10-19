@@ -10,9 +10,9 @@
 		</header>
 		<Filterbar />
 		<ul class="gallery">
-			<a v-for="app in apps" :href="'/apps/' + app.id">
+			<a v-for="app in apps" :href="'/apps/' + app.Name">
 				<li class="gallery-item" data-filterable="tags" :data-tags="app.PlatformsSupported + ',' + app.Year + ',' + app.Type">
-					<img class="icon" :src="'http://localhost:8081'+app.Icon.url" /> <!-- TODO Set base url for images-->
+					<img class="icon" :src="apiUrl+app.Icon.url" />
 					<div class="text">
 						<h6>{{ app.Name }}</h6>
 						<p>{{ app.Authors }}</p>
@@ -27,7 +27,7 @@
 			</div>
 		</ul>
 	</main>
-	<!-- 
+	<!--
 	<script src="/assets/js/filter.js"></script>
 	<script src="/assets/js/filterbar.js"></script>
 	<script>
@@ -45,6 +45,11 @@ import Footer from '@/components/footer.vue'
 import Filterbar from '@/components/filterbar.vue'
 
 export default {
+	data() {
+		return {
+			apiUrl: process.env.apiUrl,
+		}
+	},
 	components: {
 		Nav,
 		Footer,

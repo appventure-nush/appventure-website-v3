@@ -1,6 +1,9 @@
-// TODO {{ if .Title }} {{ .Title }} - AppVenture {{ else if .Item }} {{ .Item.Name }} - AppVenture {{ else }} AppVenture {{ end }}
+//TODO {{ if .Title }} {{ .Title }} - AppVenture {{ else if .Item }} {{ .Item.Name }} - AppVenture {{ else }} AppVenture {{ end }}
 
 export default {
+	env: {
+		apiUrl: process.env.API_URL || 'http://localhost:8081'
+	},
 	modules: [
 		'@nuxtjs/axios'
 	],
