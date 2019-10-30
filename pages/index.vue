@@ -53,8 +53,8 @@
 			{{ end }} {{ end }}
 		</ul>
 	</main> -->
-	<script src="~assets/js/scrollmanager.js"></script>
-	<script src="~assets/js/popup.js"></script>
+	<script src="/js/scrollmanager.js"></script>
+	<script src="/js/popup.js"></script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			document.addEventListener("scroll", new ScrollManager().onScroll);

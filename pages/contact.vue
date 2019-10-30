@@ -6,6 +6,7 @@
 			<h1>Contact AppVenture</h1>
 		</header>
 		<p>Have an app idea and need help bringing it into reality? <a href="/request">Get in touch</a></p>
+		<!--TODO request-->
 
 		<p>
 			Enquiries? Email us at
