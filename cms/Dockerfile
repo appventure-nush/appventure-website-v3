@@ -1,4 +1,4 @@
-FROM node:13-alpine
+FROM strapi/base
 
 WORKDIR /usr/src/api
 
