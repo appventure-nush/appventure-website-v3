@@ -4,9 +4,6 @@
 	<main class="page">
 		<header>
 			<h1>{{ project.Name }}</h1>
-			<!-- <p>
-				{{ range .Platforms }}#{{ . }} {{ end }}{{ range .Year }}#year-{{ . }} {{ end }}
-			</p> -->
 			<p class="authors">
 				{{ project.Authors }}
 			</p>
@@ -16,13 +13,13 @@
 		</div>
 		<div class="carousel fullscreen" data-start="0">
 			<ul class="carousel-items">
-				<li v-for="(screenshot, index) in project.Screenshots" class="carousel-item" :class="{'active': index === 0}" data-type="raw" :data-href='apiUrl+screenshot.url'>
+				<li v-for="(photo, index) in project.Photos" class="carousel-item" :class="{'active': index === 0}" data-type="raw" :data-href='apiUrl+photo.url'>
 					<img :src="apiUrl+screenshot.url" /> <!-- TODO data-type -->
 				</li>
 			</ul>
 			<div class="carousel-badges">
 				<ul class="carousel-badges-bar">
-					<a v-for="(screenshot, index) in project.Screenshots" href="#" class="carousel-badge" :class="{'active': index === 0}" :data-index="index"></a>
+					<a v-for="(photo, index) in project.Photos" href="#" class="carousel-badge" :class="{'active': index === 0}" :data-index="index"></a>
 				</ul>
 			</div>
 			<div class="carousel-overlay">

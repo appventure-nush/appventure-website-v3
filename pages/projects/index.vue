@@ -9,11 +9,11 @@
 			</p>
 		</header>
 		<a v-for="project in projects" class="project" :href="'/projects/' + project.Name">
-			<img :src="apiUrl+project.Displayimage.url" />
+			<img :src="apiUrl+project.DisplayImage.url" />
 			<div>
 				<h2>{{ project.Name }}</h2>
 				<div class="summary">
-					{{ project.Summary }}
+					{{ project.ShortDescription }}
 				</div>
 				<p class="authors">By {{ project.Authors }}</p>
 			</div>

@@ -27,14 +27,13 @@
 			</div>
 		</ul>
 	</main>
-	<!--
-	<script src="/assets/js/filter.js"></script>
-	<script src="/assets/js/filterbar.js"></script>
+	<script src="/js/filter.js"></script>
+	<script src="/js/filterbar.js"></script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var fb = new FilterBar(".filterbar", ".gallery");
 		});
-	</script> -->
+	</script>
 	<Footer />
 </div>
 </template>
