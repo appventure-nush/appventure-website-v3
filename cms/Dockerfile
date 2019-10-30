@@ -2,13 +2,10 @@ FROM node:13-alpine
 
 WORKDIR /usr/src/api
 
-COPY . /usr/src/app
+COPY . /usr/src/api
 
 RUN apk --no-cache --virtual build-dependencies add \
     python \
-    make \
-    g++ \
-    && npm install \
     && apk del build-dependencies
 
 RUN echo "unsafe-perm = true" >> ~/.npmrc
