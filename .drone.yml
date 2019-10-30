@@ -5,9 +5,9 @@ pipeline:
     pull: true
     registry: registry:5000
     insecure: true
-    repo: registry:5000/appventure-api
-    dockerfile: ./api/Dockerfile
-    context: ./api
+    repo: registry:5000/appventure-api-v3
+    dockerfile: ./cms/Dockerfile
+    context: ./cms
     tags:
       - "${DRONE_BRANCH}"
   docker-website:
@@ -16,6 +16,6 @@ pipeline:
     pull: true
     registry: registry:5000
     insecure: true
-    repo: registry:5000/appventure-website
+    repo: registry:5000/appventure-website-v3
     tags:
       - "${DRONE_BRANCH}"

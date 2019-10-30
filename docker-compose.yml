@@ -1,18 +1,65 @@
-frontend:
-  image: node:10.15.1
-  command: npm run docker
-  volumes:
-    - ./frontend:/usr/src/app
-  working_dir: /usr/src/app
-  ports:
-    - "3000:3000"
-  environment:
-    HOST: 0.0.0.0
-server:
-  image: node:10.15.1
-  command: npm run docker
-  volumes:
-    - ./server:/usr/src/app
-  working_dir: /usr/src/app
-  ports:
-    - "4000:4000"
+version: 2
+
+networks:
+  primary:
+    external:
+      name: primary
+  website_net:
+    external: false
+
+services:
+  website:
+      image: appventure.nushigh.edu.sg/appventure-website-v3:master
+      build: .
+      container_name: appventure-website
+      restart: always
+      command:
+        "npm run start"
+      networks:
+      - primary
+      - website_net
+      labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.port=8080"
+      - "traefik.docker.network=primary"
+
+  strapi:
+    container_name: strapi
+    image: appventure.nushigh.edu.sg/appventure-strapi:master
+    build: .
+    restart: always
+    environment:
+      - DATABASE_CLIENT=mysql
+      - DATABASE_HOST=db
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=strapi
+      - DATABASE_PASSWORD=strapi
+    volumes:
+      - ./app:/srv/app
+    depends_on:
+      - db
+    networks:
+    - primary
+    - website_net
+    labels:
+    - "traefik.enable=true"
+    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin"
+    - "traefik.frontend.entryPoints=https"
+    - "traefik.port=8080"
+    - "traefik.docker.network=primary"
+
+  db:
+    container_name: mysql
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: strapi
+      MYSQL_USER: strapi
+      MYSQL_PASSWORD: strapi
+      MYSQL_ROOT_PASSWORD: strapi
+    volumes:
+      - ./db:/var/lib/mysql
