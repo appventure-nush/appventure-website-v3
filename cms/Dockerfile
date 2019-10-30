@@ -6,13 +6,9 @@ COPY . /usr/src/api
 
 RUN apk --no-cache --virtual build-dependencies add \
     python \
+    && echo "unsafe-perm = true" >> ~/.npmrc \
+    && npm install --production \
     && apk del build-dependencies
-
-RUN echo "unsafe-perm = true" >> ~/.npmrc
-
-RUN npm install -g strapi@alpha
-
-RUN npm install --production
 
 EXPOSE 1337
 
