@@ -6,6 +6,8 @@ COPY . /usr/src/api
 
 RUN apk --no-cache --virtual build-dependencies add \
     python \
+    make \
+    g++ \
     && echo "unsafe-perm = true" >> ~/.npmrc \
     && npm install --production \
     && apk del build-dependencies
