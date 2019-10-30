@@ -27,7 +27,7 @@ services:
 
   strapi:
     container_name: strapi
-    image: appventure.nushigh.edu.sg/appventure-strapi:master
+    image: appventure.nushigh.edu.sg/appventure-api-v3:master
     build: .
     restart: always
     environment:
