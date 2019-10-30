@@ -1,13 +1,12 @@
-FROM strapi/base
+FROM node:13-alpine
 
-WORKDIR /api
+WORKDIR /usr/src/api
 
-COPY ./package.json ./
+RUN echo "unsafe-perm = true" >> ~/.npmrc
 
 RUN npm install -g strapi@alpha
-RUN npm install --production
 
-COPY . .
+RUN npm install --production
 
 RUN npm build
 
