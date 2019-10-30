@@ -4,6 +4,7 @@ WORKDIR /api
 
 COPY ./package.json ./
 
+RUN npm install -g strapi@alpha
 RUN npm install --production
 
 COPY . .
