@@ -1,18 +1,21 @@
-FROM strapi/base
+FROM node:13-alpine
 
 WORKDIR /usr/src/api
 
-COPY ./package.json ./
+COPY . /usr/src/app
+
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ \
+    && npm install \
+    && apk del build-dependencies
 
 RUN echo "unsafe-perm = true" >> ~/.npmrc
 
 RUN npm install -g strapi@alpha
 
 RUN npm install --production
-
-COPY . .
-
-RUN npm build
 
 EXPOSE 1337
 
