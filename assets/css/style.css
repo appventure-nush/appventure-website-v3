@@ -750,9 +750,6 @@ main {
     height: 100%;
     position: absolute;
     left: 22%; }
-    .gallery .text p, .gallery .text main .content, main .gallery .text .content,
-    .gallery .text h6 {
-      margin: 0; }
 
 .carousel {
   position: relative;
@@ -1000,21 +997,15 @@ main {
 .request select {
   font: inherit; }
 
-.request input:not([type="submit"]),
-.request textarea {
-  appearance: none;
-  background: none;
-  color: inherit;
-  border: 2px solid rgba(50, 59, 69, 0.666666);
+.request .form-control {
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid #ced4da;
   border-radius: 0.25em;
-  line-height: 1.2;
-  padding: 0.333333em 0.666666em;
-  margin: 0.222222em 0;
-  display: inline-block;
-  transition: 0.2s color, 0.2s background-color, 0.2s border-color;
-  width: 100%;
-  outline: none;
-  margin-bottom: 1em; }
+  margin-bottom: 1.5rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  width: 100%; }
 
 .request textarea {
   resize: vertical; }
@@ -1025,7 +1016,8 @@ main {
 
 .request .btn, .request .filterbar .group label, .filterbar .group .request label, .request .apps .link, .apps .request .link {
   width: 100%;
-  border-radius: 0.25em; }
+  border-radius: 0.25em;
+  padding: .84rem 2.14rem; }
 
 .profile {
   display: flex;
