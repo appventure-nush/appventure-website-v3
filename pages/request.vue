@@ -13,15 +13,11 @@
 
 		<form class="request" action="/request/send" method="post">
 			<!-- TODO request -->
-			Title <br />
-			<input type="text" name="title" required placeholder="Bus Timings Display" />
-			Description <br />
-			<textarea rows="6" name="desc" required placeholder="A website which shows bus arrival timings around the school.."></textarea>
-			Name<br />
-			<input type="text" name="name" required />
-			Email<br />
-			<input type="text" name="email" required />
-			<input class="btn" type="submit" value="Send!" />
+			<input class="form-control" type="text" name="title" required placeholder="Title" />
+			<textarea class="form-control" rows="6" name="desc" required placeholder="Description"></textarea>
+			<input class="form-control" type="text" name="name" placeholder="Name" required />
+			<input class="form-control" type="text" name="email" placeholder="Email" required />
+			<input class="btn" type="submit" value="Send" />
 		</form>
 	</main>
 	<Footer />
