@@ -3,24 +3,19 @@
 	<Nav />
 	<main class="page projects">
 		<header>
-			<h1>Projects</h1>
+			<h1>Appventure Projects</h1>
 			<p>
 				Student made projects that improve the quality of life of those in school as well as the community
 			</p>
 		</header>
 		<a v-for="project in projects" class="project" :href="'/projects/' + project.Name">
-			<img :src="apiUrl+project.DisplayImage.url" />
-			<div>
+			<img class="image" style="max-width:100%;max-height:200px;" :src="apiUrl+project.DisplayImage.url" />
+			<div class="content">
 				<h2>{{ project.Name }}</h2>
-				<div class="summary">
-					{{ project.ShortDescription }}
-				</div>
+				<div class="summary">{{ project.ShortDescription }}</div>
 				<p class="authors">By {{ project.Authors }}</p>
 			</div>
 		</a>
-		<div class="project center">
-			<h2>No projects published</h2>
-		</div>
 	</main>
 	<Footer />
 </div>

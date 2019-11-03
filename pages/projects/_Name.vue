@@ -14,7 +14,7 @@
 		<div class="carousel fullscreen" data-start="0">
 			<ul class="carousel-items">
 				<li v-for="(photo, index) in project.Photos" class="carousel-item" :class="{'active': index === 0}" data-type="raw" :data-href='apiUrl+photo.url'>
-					<img :src="apiUrl+screenshot.url" /> <!-- TODO data-type -->
+					<img :src="apiUrl+photo.url" /> <!-- TODO data-type -->
 				</li>
 			</ul>
 			<div class="carousel-badges">
@@ -28,13 +28,7 @@
 			</div>
 		</div>
 	</main>
-	<script src="/assets/js/carousel.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var c = new Carousel(".carousel");
-			c.autoplay();
-		});
-	</script>
+	<script src="/js/carousel.js"></script>
 	<Footer />
 </div>
 </template>
@@ -63,7 +57,7 @@ export default {
 	}) {
 		const data = await $axios.$get('/projects?Name=' + route.params.Name)
 		return {
-			app: data[0]
+			project: data[0]
 		}
 	}
 }

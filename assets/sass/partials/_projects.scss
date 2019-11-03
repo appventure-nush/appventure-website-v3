@@ -1,9 +1,37 @@
 .projects {
+  a[href] {
+    color: #000;
+  }
+
   .project {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
     margin: 2em 0;
+
+    .image {
+      align-self: center;
+      max-width: 300px !important;
+    }
+
+    .content {
+      margin: 0;
+      padding-left: 2em;
+      padding-right: 2em;
+    }
 
     .authors {
       @include font-size(subtext);
     }
+  }
+
+  .project:hover{
+     box-shadow: 0 .5rem .8rem rgba(0,0,0,.075);
+    -webkit-transition:  box-shadow .2s ease-in;
+  }
+
+  .project:nth-child(odd) {
+    flex-direction: row-reverse;
   }
 }
