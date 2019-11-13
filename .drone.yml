@@ -9,7 +9,7 @@ pipeline:
     dockerfile: ./cms/Dockerfile
     context: ./cms
     tags:
-      - "latest"
+      - latest
   docker-website:
     group: docker
     image: plugins/docker
@@ -18,4 +18,4 @@ pipeline:
     insecure: true
     repo: registry:5000/appventure-website-v3
     tags:
-      - "latest"
+      - latest
