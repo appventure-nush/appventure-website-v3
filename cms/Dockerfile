@@ -12,8 +12,8 @@ RUN apk --no-cache --virtual build-dependencies add \
     && npm install --production \
     && apk del build-dependencies
 
-EXPOSE 1337
+EXPOSE 1337 8080
 
-# ENV NODE_ENV production
+ENV NODE_ENV production
 
 CMD ["npm", "start"]
