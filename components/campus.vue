@@ -1,23 +1,86 @@
+<style scoped>
+#bg {
+	fill: #009a90;
+}
+
+#hole {
+	fill: #009a90;
+	stroke: #fff;
+	stroke-width: 0;
+}
+
+#main {
+	fill: #009a90;
+	stroke: #fff;
+	stroke-width: 0;
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+.cls-1 {
+	animation-name: fadein;
+}
+
+.cls-2 {
+	stroke-width: 0.5;
+	animation-name: draw;
+}
+
+.cls-3 {
+	stroke-width: 1;
+	animation-name: drawfill;
+}
+
+@keyframes draw {
+	95% {
+		stroke-dashoffset: 0px;
+		stroke-width: 0.5;
+	}
+
+	100% {
+		stroke-dashoffset: 0px;
+		stroke-width: 0;
+	}
+}
+
+@keyframes drawfill {
+	95% {
+		stroke-dashoffset: 0px;
+		fill: #009a90;
+		stroke-width: 1.5;
+	}
+
+	100% {
+		stroke-dashoffset: 0px;
+		fill: #fff;
+		stroke-width: 0.5;
+	}
+}
+
+@keyframes fadein {
+	0% {
+		fill: #009a90;
+	}
+
+	95% {
+		fill: #009a90;
+	}
+
+	100% {
+		fill: #fff;
+	}
+}
+</style>
+
 <template>
 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 698.51 469.31">
 	<title>nush</title>
-	<style type="text/css">
-		#bg {
-			fill: #009a90;
-		}
-
-		#hole {
-			fill: #009a90;
-			stroke: #fff;
-			stroke-width: 0;
-		}
-
-		#main {
-			fill: #009a90;
-			stroke: #fff;
-			stroke-width: 0;
-		}
-	</style>
 	<g id="bg">
 		<path class="cls-1" d="M587.11,397.07C542.63,387.58,449,374.49,406.7,371l10.89-61.17,160.9-1.8,15.45,86.42Z" />
 		<polygon class="cls-1" points="419.99 274.89 569.24 265.84 556.04 165.91 491.78 173.47 433.3 192.44 419.99 274.89" />
@@ -398,68 +461,5 @@
 			lines[i].style.strokeDashoffset = lines[i].getTotalLength() + "px";
 		}
 	</script>
-	<style type="text/css">
-		.cls-1,
-		.cls-2,
-		.cls-3 {
-			animation-duration: 5s;
-			animation-timing-function: linear;
-			animation-fill-mode: forwards;
-		}
-
-		.cls-1 {
-			animation-name: fadein;
-		}
-
-		.cls-2 {
-			stroke-width: 0.5;
-			animation-name: draw;
-		}
-
-		.cls-3 {
-			stroke-width: 1;
-			animation-name: drawfill;
-		}
-
-		@keyframes draw {
-			95% {
-				stroke-dashoffset: 0px;
-				stroke-width: 0.5;
-			}
-
-			100% {
-				stroke-dashoffset: 0px;
-				stroke-width: 0;
-			}
-		}
-
-		@keyframes drawfill {
-			95% {
-				stroke-dashoffset: 0px;
-				fill: #009a90;
-				stroke-width: 1.5;
-			}
-
-			100% {
-				stroke-dashoffset: 0px;
-				fill: #fff;
-				stroke-width: 0.5;
-			}
-		}
-
-		@keyframes fadein {
-			0% {
-				fill: #009a90;
-			}
-
-			95% {
-				fill: #009a90;
-			}
-
-			100% {
-				fill: #fff;
-			}
-		}
-	</style>
 </svg>
 </template>
