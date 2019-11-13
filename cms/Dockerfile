@@ -14,6 +14,6 @@ RUN apk --no-cache --virtual build-dependencies add \
 
 EXPOSE 1337
 
-ENV NODE_ENV production
+# ENV NODE_ENV production
 
 CMD ["npm", "start"]

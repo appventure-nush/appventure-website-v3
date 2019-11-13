@@ -16,21 +16,24 @@ services:
       networks:
       - primary
       - website_net
+      environment:
+      - API_URL=http://localhost:8080
+      - HOST=0.0.0.0
       labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg"
-      - "traefik.frontend.entryPoints=http,https"
-      - "traefik.port=9000"
+      - "traefik.frontend.entryPoints=https"
+      - "traefik.port=8080"
       - "traefik.docker.network=primary"
 
   strapi:
     container_name: strapi
     image: appventure.nushigh.edu.sg/appventure-api-v3:master
     build: .
-    restart: always
     environment:
+      - PORT=8080
       - DATABASE_CLIENT=mysql
-      - DATABASE_HOST=db
+      - DATABASE_HOST=0.0.0.0
       - DATABASE_PORT=3306
       - DATABASE_NAME=strapi
       - DATABASE_USERNAME=strapi
@@ -44,9 +47,9 @@ services:
     - website_net
     labels:
     - "traefik.enable=true"
-    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin"
+    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin,/users-permissions,/settings-manager,/content-type-builder"
     - "traefik.frontend.entryPoints=https"
-    - "traefik.port=9000"
+    - "traefik.port=8080"
     - "traefik.docker.network=primary"
 
   db:
