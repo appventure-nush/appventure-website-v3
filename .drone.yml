@@ -6,8 +6,8 @@ pipeline:
     registry: registry:5000
     insecure: true
     repo: registry:5000/appventure-api-v3
-    dockerfile: ./cms/Dockerfile
-    context: ./cms
+    dockerfile: ./cms-mysql/Dockerfile
+    context: ./cms-mysql
     tags:
       - latest
   docker-website:
