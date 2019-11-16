@@ -21,7 +21,7 @@
 		<h1>The Team</h1>
 
 		<div class="profile">
-			<img class="picture" title="Ambrose's Best Friend" alt="Ambrose's Best Friend" src="~assets/images/ambrosesbestfriend.jpg" />
+			<img class="picture" title="Ambrose's Best Friend" alt="Ambrose's Best Friend" src="/images/ambrosesbestfriend.jpg" />
 			<div class="text">
 				<h2>Wayne Tee</h2>
 				<p>
@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="profile">
-			<img class="picture" title="Wayne's Best Friend" alt="Wayne's Best Friend" src="~assets/images/waynesbestfriend.jpg" />
+			<img class="picture" title="Wayne's Best Friend" alt="Wayne's Best Friend" src="/images/waynesbestfriend.jpg" />
 			<div class="text">
 				<h2>Ambrose Chua</h2>
 				<p>

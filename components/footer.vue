@@ -3,7 +3,7 @@
 	<footer class="footer">
 		<div class="column">
 			<div class="group">
-				<a href="http://www.nushigh.edu.sg"><img src="~assets/images/nushigh.svg" title="Visit school website" width="146" /></a>
+				<a href="http://www.nushigh.edu.sg"><img src="/images/nushigh.svg" title="Visit school website" width="146" /></a>
 			</div>
 		</div>
 		<div class="column">
