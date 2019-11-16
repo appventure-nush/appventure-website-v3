@@ -41,7 +41,7 @@ $carousel-types: (
       $bottom: map-get($spec, bottom);
       $ratio: map-get($spec, ratio);
       @if $type != "raw" {
-        background-image: url("/assets/images/" + $type + ".svg");
+        background-image: url('/images/' + $type + '.svg');
       }
       font-size: $height;
       height: 1em;

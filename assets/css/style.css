@@ -760,7 +760,7 @@ main {
   width: 100%;
   background: #fff no-repeat center / auto 100%; }
   .carousel.carousel-type-desktop-16-10 {
-    background-image: url("/assets/images/desktop-16-10.svg");
+    background-image: url("/images/desktop-16-10.svg");
     font-size: 26rem;
     height: 1em; }
     @media screen and (max-width: 480px) {
@@ -774,7 +774,7 @@ main {
       left: 50%;
       margin-left: -0.6576em; }
   .carousel.carousel-type-mobile-9-16 {
-    background-image: url("/assets/images/mobile-9-16.svg");
+    background-image: url("/images/mobile-9-16.svg");
     font-size: 42rem;
     height: 1em; }
     @media screen and (max-width: 480px) {
@@ -788,7 +788,7 @@ main {
       left: 50%;
       margin-left: -0.22219em; }
   .carousel.carousel-type-mobile-16-9 {
-    background-image: url("/assets/images/mobile-16-9.svg");
+    background-image: url("/images/mobile-16-9.svg");
     font-size: 24rem;
     height: 1em; }
     @media screen and (max-width: 480px) {

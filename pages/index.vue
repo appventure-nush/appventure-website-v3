@@ -17,56 +17,33 @@
 			</div>
 		</section>
 	</div>
-	<!-- <main>
+	<main>
 		<header>
 			<h1>Featured</h1>
 		</header>
 		<ul class="featured">
-			{{ range $i, $Item := .Items }} {{ with $Item }}
-			<li class="featured-item page columns{{ if even $i }}{{ else }} reverse{{ end }}">
-				{{ with $Item.Screenshot }}
+			<li v-for="(app,index) in apps" :class="{'reverse': index % 2 !== 0}" class="featured-item page columns">
 				<div class="column">
-					<div class="carousel carousel-type-{{ .Type }} animate{{ if even $i }} from-left{{ else }} from-right{{ end }}">
+					<div class="carousel carousel-type-desktop-16-10 animate" :class="{'from-left': index % 2 === 0, 'from-right': index % 2 !== 0}">
 						<ul class="carousel-items">
 							<li class="carousel-item active">
-								<img title="{{ .Description }}" alt="{{ .Description }}" src='{{ size "x360" .Image }}' />
+								<img :src="apiUrl+app.Screenshots[0].url" />
 							</li>
 						</ul>
 					</div>
 				</div>
-				{{ end }} {{ with $Item.App }}
 				<div class="column">
-					<h1>{{ .Name }}</h1>
-					<p class="authors">
-						{{ andify .Authors }}
-					</p>
-					{{ if .Achievements }}
-					<div class="achievements plain">
-						{{ html .Achievements }}
-					</div>
-					{{ end }}
-					<p>{{ html .Description }}</p>
-					<a class="btn" href="/apps/{{ unslug .Slug }}">Read more</a>
+					<h1>{{ app.Name }}</h1>
+					<p class="authors">{{ app.Authors }}</p>
+					<div v-if="app.Achievements" class="achievements plain">{{ app.Achievements }}</div>
+					<p>{{ app.Description }}</p>
+					<a class="btn" :href="'/apps/'+ app.Name">Read more</a>
 				</div>
-				{{ end }}
 			</li>
-			{{ end }} {{ end }}
 		</ul>
-	</main> -->
+	</main>
 	<script src="/js/scrollmanager.js"></script>
 	<script src="/js/popup.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			document.addEventListener("scroll", new ScrollManager().onScroll);
-			var trailer = new Popup(
-				"trailer",
-				'<div class="video"><iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/0T8g8eJFtFo?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe></div>',
-				function() {
-					ga("send", "event", "Videos", "play", "Launch");
-				}
-			);
-		});
-	</script>
 	<Footer />
 </div>
 </template>
@@ -77,10 +54,26 @@ import Footer from '@/components/footer.vue'
 import Campus from '@/components/campus.vue'
 
 export default {
+	data() {
+		return {
+			apiUrl: process.env.apiUrl,
+		}
+	},
+	mounted() {
+		document.addEventListener("scroll", new ScrollManager().onScroll);
+	},
 	components: {
 		Nav,
 		Footer,
 		Campus
+	},
+	async asyncData({
+		$axios
+	}) {
+		const data = await $axios.$get('/apps?Featured=true')
+		return {
+			apps: data
+		}
 	}
 }
 </script>
