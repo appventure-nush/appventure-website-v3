@@ -11,7 +11,7 @@
 		<Filterbar />
 		<ul class="gallery">
 			<a v-for="app in apps" :href="'/apps/' + app.Name">
-				<li class="gallery-item" data-filterable="tags" :data-tags="app.PlatformsSupported + ',' + app.Year + ',' + app.Type">
+				<li class="gallery-item" data-filterable="tags" :data-tags="app.PlatformSupported + ',' + app.Year + ',' + app.Type">
 					<img class="icon" :src="apiUrl+app.Icon.url" />
 					<div class="text">
 						<h6>{{ app.Name }}</h6>
@@ -29,11 +29,6 @@
 	</main>
 	<script src="/js/filter.js"></script>
 	<script src="/js/filterbar.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var fb = new FilterBar(".filterbar", ".gallery");
-		});
-	</script>
 	<Footer />
 </div>
 </template>
@@ -61,6 +56,11 @@ export default {
 		return {
 			apps: data
 		}
+	},
+	mounted() {
+		document.addEventListener("DOMContentLoaded", function() {
+			var fb = new FilterBar(".filterbar", ".gallery");
+		});
 	}
 }
 </script>

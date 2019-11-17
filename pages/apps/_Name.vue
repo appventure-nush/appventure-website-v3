@@ -5,8 +5,8 @@
 		<div class="column">
 			<div v-if="app.Screenshots" class="carousel fullscreen" data-start="0">
 				<ul class="carousel-items">
-					<li v-for="(screenshot, index) in app.Screenshots" class="carousel-item" :class="{'active': index === 0}" data-type="raw" :data-href='apiUrl+screenshot.url'>
-						<img :src="apiUrl+screenshot.url" /> <!-- TODO data-type -->
+					<li v-for="(screenshot, index) in app.Screenshots" class="carousel-item" :class="{'active': index === 0}" :data-type='app.DisplayType' :data-href='apiUrl+screenshot.url'>
+						<img :src="apiUrl+screenshot.url" />
 					</li>
 				</ul>
 				<div class="carousel-badges">
@@ -44,7 +44,7 @@
 			<header>
 				<h1>{{ app.Name }}</h1>
 				<p>
-					{{ app.PlatformsSupported }}{{ '#year-' + app.Year }}{{ '#' + app.Type }}
+					{{ app.PlatformsSupported }} / {{ app.Year }} / {{ app.Type }}
 				</p>
 				<p class="authors">
 					{{ app.Authors }}

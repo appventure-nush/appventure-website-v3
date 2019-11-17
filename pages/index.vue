@@ -24,7 +24,7 @@
 		<ul class="featured">
 			<li v-for="(app,index) in apps" :class="{'reverse': index % 2 !== 0}" class="featured-item page columns">
 				<div class="column">
-					<div class="carousel carousel-type-desktop-16-10 animate" :class="{'from-left': index % 2 === 0, 'from-right': index % 2 !== 0}">
+					<div class="carousel animate" :class="['carousel-type-' + app.DisplayType, {'from-left': index % 2 === 0, 'from-right': index % 2 !== 0}]">
 						<ul class="carousel-items">
 							<li class="carousel-item active">
 								<img :src="apiUrl+app.Screenshots[0].url" />

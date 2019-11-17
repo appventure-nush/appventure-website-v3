@@ -31,22 +31,11 @@
     "Achievements": {
       "type": "text"
     },
-    "PlatformsSupported": {
+    "PlatformSupported": {
       "enum": [
         "Web",
         "Desktop",
         "Mobile"
-      ],
-      "type": "enumeration"
-    },
-    "Year": {
-      "enum": [
-        "Year 1",
-        "Year 2",
-        "Year 3",
-        "Year 4",
-        "Year 5",
-        "Year 6"
       ],
       "type": "enumeration"
     },
@@ -81,6 +70,20 @@
     },
     "Featured": {
       "type": "boolean"
+    },
+    "Year": {
+      "required": true,
+      "default": "Year 1, Year 2, Year 3, Year 4, Year 5, Year 6",
+      "type": "string"
+    },
+    "DisplayType": {
+      "enum": [
+        "raw",
+        "desktop-16-10",
+        "mobile-9-16",
+        "mobile-16-9"
+      ],
+      "type": "enumeration"
     }
   }
 }
