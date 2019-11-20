@@ -18,7 +18,6 @@
     },
     "ShortDescription": {
       "type": "text",
-      "maxLength": 100,
       "required": true
     },
     "Content": {

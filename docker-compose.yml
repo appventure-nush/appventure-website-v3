@@ -9,7 +9,7 @@ networks:
 
 services:
   website:
-      image: appventure.nushigh.edu.sg/appventure-website-v3:master
+      image: appventure.nushigh.edu.sg/appventure-website-v3:latest
       build: .
       container_name: appventure-website
       restart: always
@@ -17,23 +17,23 @@ services:
       - primary
       - website_net
       environment:
-      - API_URL=http://localhost:8080
-      - HOST=0.0.0.0
+      - API_URL=http://strapi:8081
+      - HOST=website
       labels:
       - "traefik.enable=true"
       - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg"
-      - "traefik.frontend.entryPoints=https"
+      - "traefik.frontend.entryPoints=http,https"
       - "traefik.port=8080"
       - "traefik.docker.network=primary"
 
   strapi:
     container_name: strapi
-    image: appventure.nushigh.edu.sg/appventure-api-v3:master
+    image: appventure.nushigh.edu.sg/appventure-api-v3:latest
     build: .
     environment:
-      - PORT=8080
+      - PORT=8081
       - DATABASE_CLIENT=mysql
-      - DATABASE_HOST=0.0.0.0
+      - DATABASE_HOST=db
       - DATABASE_PORT=3306
       - DATABASE_NAME=strapi
       - DATABASE_USERNAME=strapi
@@ -47,9 +47,9 @@ services:
     - website_net
     labels:
     - "traefik.enable=true"
-    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin,/users-permissions,/settings-manager,/content-type-builder"
+    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin,/users,/users-permissions,/settings-manager,/content-manager,/content-type-builder,/auth"
     - "traefik.frontend.entryPoints=https"
-    - "traefik.port=8080"
+    - "traefik.port=8081"
     - "traefik.docker.network=primary"
 
   db:
