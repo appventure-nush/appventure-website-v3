@@ -27,7 +27,7 @@
 					<div class="carousel animate" :class="['carousel-type-' + app.DisplayType, {'from-left': index % 2 === 0, 'from-right': index % 2 !== 0}]">
 						<ul class="carousel-items">
 							<li class="carousel-item active">
-								<img :src="apiUrl+app.Screenshots[0].url" />
+								<img :src="imageURL+app.Screenshots[0].url" />
 							</li>
 						</ul>
 					</div>
@@ -56,7 +56,7 @@ import Campus from '@/components/campus.vue'
 export default {
 	data() {
 		return {
-			apiUrl: process.env.apiUrl,
+			imageURL: process.env.imageURL,
 		}
 	},
 	mounted() {

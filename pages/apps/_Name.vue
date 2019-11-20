@@ -5,8 +5,8 @@
 		<div class="column">
 			<div v-if="app.Screenshots" class="carousel fullscreen" data-start="0">
 				<ul class="carousel-items">
-					<li v-for="(screenshot, index) in app.Screenshots" class="carousel-item" :class="{'active': index === 0}" :data-type='app.DisplayType' :data-href='apiUrl+screenshot.url'>
-						<img :src="apiUrl+screenshot.url" />
+					<li v-for="(screenshot, index) in app.Screenshots" class="carousel-item" :class="{'active': index === 0}" :data-type='app.DisplayType' :data-href='imageUrl+screenshot.url'>
+						<img :src="imageURL+screenshot.url" />
 					</li>
 				</ul>
 				<div class="carousel-badges">
@@ -34,9 +34,9 @@
 					<i class="icon-apple"></i>
 					<span>Download on the App Store</span>
 				</a>
-				<a v-if="app.Downloads" v-for="download in app.Downloads" :href="download.url" class="link" id="download">
+				<a v-if="app.Downloads" v-for="download in app.Downloads" :href="imageUrl + download.url" class="link" id="download">
 					<i class="icon-get_app"></i>
-					<span>Download {{ download.url }}</span>
+					<span>Download</span>
 				</a>
 			</div>
 		</div>
@@ -73,7 +73,7 @@ import Footer from '@/components/footer.vue'
 export default {
 	data() {
 		return {
-			apiUrl: process.env.apiUrl,
+			imageUrl: process.env.imageURL,
 		}
 	},
 	components: {
