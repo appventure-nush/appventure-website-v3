@@ -3,7 +3,7 @@
 export default {
 	env: {
 		apiUrl: process.env.API_URL || 'http://localhost:8081',
-		imageUrl: process.env.IMAGE_URL || 'http://localhost:8081'
+		imageURL: process.env.IMAGE_URL || 'http://localhost:8081'
 	},
 	modules: [
 		'@nuxtjs/axios'
