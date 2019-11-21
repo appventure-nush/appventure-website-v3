@@ -10,6 +10,8 @@ RUN npm run build
 
 EXPOSE 8080
 
+ENV imageURL=https://appventure.nushigh.edu.sg
+
 ENV NUXT_HOST=0.0.0.0
 
 ENV NUXT_PORT=8080

@@ -3,8 +3,8 @@
 export default {
 	build: {
 		env: {
-			apiUrl: process.env.API_URL || 'http://localhost:8081',
-			imageURL: process.env.IMAGE_URL || 'http://localhost:8081'
+			apiUrl: 'http://localhost:8081',
+			imageURL: 'https://appventure.nushigh.edu.sg'
 		}
 	},
 	env: {
