@@ -9,7 +9,7 @@ export default {
 	},
 	env: {
 		apiUrl: process.env.API_URL || 'http://localhost:8081',
-		imageURL: process.env.IMAGE_URL || 'http://localhost:8081'
+		imageURL: process.env.IMAGE_URL || 'https://appventure.nushigh.edu.sg'
 	},
 	modules: [
 		'@nuxtjs/axios'
