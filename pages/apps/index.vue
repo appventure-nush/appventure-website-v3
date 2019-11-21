@@ -12,7 +12,7 @@
 		<ul class="gallery">
 			<a v-for="app in apps" :href="'/apps/' + app.Name">
 				<li class="gallery-item" data-filterable="tags" :data-tags="app.PlatformSupported + ',' + app.Year + ',' + app.Type">
-					<img class="icon" :src="imageURL+app.Icon.url" />
+					<img class="icon" :src="imageUrl+app.Icon.url" />
 					<div class="text">
 						<h6>{{ app.Name }}</h6>
 						<p>{{ app.Authors }}</p>
@@ -41,7 +41,7 @@ import Filterbar from '@/components/filterbar.vue'
 export default {
 	data() {
 		return {
-			imageURL: process.env.imageURL,
+			imageUrl: process.env.imageURL,
 		}
 	},
 	components: {

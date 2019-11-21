@@ -1,6 +1,12 @@
 //TODO {{ if .Title }} {{ .Title }} - AppVenture {{ else if .Item }} {{ .Item.Name }} - AppVenture {{ else }} AppVenture {{ end }}
 
 export default {
+	build: {
+		env: {
+			apiUrl: process.env.API_URL || 'http://localhost:8081',
+			imageURL: process.env.IMAGE_URL || 'http://localhost:8081'
+		}
+	},
 	env: {
 		apiUrl: process.env.API_URL || 'http://localhost:8081',
 		imageURL: process.env.IMAGE_URL || 'http://localhost:8081'

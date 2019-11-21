@@ -9,7 +9,7 @@
 			</p>
 		</header>
 		<a v-for="project in projects" class="project" :href="'/projects/' + project.Name">
-			<img class="image" style="max-width:100%;max-height:200px;" :src="imageURL+project.DisplayImage.url" />
+			<img class="image" style="max-width:100%;max-height:200px;" :src="imageUrl+project.DisplayImage.url" />
 			<div class="content">
 				<h2>{{ project.Name }}</h2>
 				<div class="summary">{{ project.ShortDescription }}</div>
@@ -29,7 +29,7 @@ import Filterbar from '@/components/filterbar.vue'
 export default {
 	data() {
 		return {
-			imageURL: process.env.imageURL,
+			imageUrl: process.env.imageURL,
 		}
 	},
 	components: {
