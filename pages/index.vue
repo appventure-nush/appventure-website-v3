@@ -42,7 +42,6 @@
 			</li>
 		</ul>
 	</main>
-	<script src="/js/scrollmanager.js"></script>
 	<script src="/js/popup.js"></script>
 	<Footer />
 </div>
@@ -54,6 +53,14 @@ import Footer from '@/components/footer.vue'
 import Campus from '@/components/campus.vue'
 
 export default {
+	head() {
+		return {
+			script: [{
+				src: '/js/scrollmanager.js',
+				body: true
+			}]
+		}
+	},
 	data() {
 		return {
 			imageUrl: process.env.imageURL,

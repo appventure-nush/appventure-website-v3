@@ -27,8 +27,6 @@
 			</div>
 		</ul>
 	</main>
-	<script src="/js/filter.js"></script>
-	<script src="/js/filterbar.js"></script>
 	<Footer />
 </div>
 </template>
@@ -39,6 +37,19 @@ import Footer from '@/components/footer.vue'
 import Filterbar from '@/components/filterbar.vue'
 
 export default {
+	head() {
+		return {
+			script: [{
+					src: '/js/filter.js',
+					body: true
+				},
+				{
+					src: '/js/filterbar.js',
+					body: true
+				}
+			]
+		}
+	},
 	data() {
 		return {
 			imageUrl: process.env.imageURL,

@@ -61,7 +61,6 @@
 			</div>
 		</div>
 	</main>
-	<script src="/js/carousel.js"></script>
 	<Footer />
 </div>
 </template>
@@ -71,6 +70,14 @@ import Nav from '@/components/nav.vue'
 import Footer from '@/components/footer.vue'
 
 export default {
+	head() {
+		return {
+			script: [{
+				src: '/js/carousel.js',
+				body: true
+			}]
+		}
+	},
 	data() {
 		return {
 			imageUrl: process.env.imageURL,
