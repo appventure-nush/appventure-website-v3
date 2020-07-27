@@ -9,27 +9,28 @@ networks:
 
 services:
   website:
-      image: appventure.nushigh.edu.sg/appventure-website-v3:latest
-      build: .
-      container_name: appventure-website
-      restart: always
-      networks:
+    image: registry.nush.app/appventure-website-v3:latest
+    container_name: appventure-website
+    restart: always
+    networks:
       - primary
       - website_net
-      environment:
+    environment:
       - API_URL=http://strapi:8081
       - HOST=website
-      labels:
-      - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg"
-      - "traefik.frontend.entryPoints=http,https"
-      - "traefik.port=8080"
-      - "traefik.docker.network=primary"
-
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.website.rule=Host(`nush.app`)"
+    - "traefik.http.routers.website.entryPoints=https"
+    - "traefik.http.routers.website.tls=true"
+    - "traefik.http.routers.website.tls.certresolver=tlsresolver"
+    - "traefik.http.middlewares.bustimings-redirect-regex.redirectregex.regex=^https://nush.app/bustimings"
+    - "traefik.http.middlewares.bustimings-redirect-regex.redirectregex.replacement=https://bustimings.nush.app"
+    - "traefik.http.middlewares.bustimings-redirect-regex.redirectregex.permanent=true"
+    - "traefik.http.routers.website.middlewares=bustimings-redirect-regex"
   strapi:
     container_name: strapi
-    image: appventure.nushigh.edu.sg/appventure-api-v3:latest
-    build: .
+    image: registry.nush.app/appventure-api-v3:latest
     environment:
       - PORT=8081
       - DATABASE_CLIENT=mysql
@@ -43,15 +44,14 @@ services:
     depends_on:
       - db
     networks:
-    - primary
-    - website_net
+     - primary
+     - website_net
     labels:
     - "traefik.enable=true"
-    - "traefik.frontend.rule=Host:appventure.nushigh.edu.sg;PathPrefix:/api,/admin,/users,/users-permissions,/settings-manager,/content-manager,/content-type-builder,/auth"
-    - "traefik.frontend.entryPoints=https"
-    - "traefik.port=8081"
-    - "traefik.docker.network=primary"
-
+    - "traefik.http.routers.api.rule=Host(`nush.app`) && PathPrefix(`/api`) || PathPrefix(`/admin`)"
+    - "traefik.http.routers.api.entryPoints=https"
+    - "traefik.http.routers.api.tls=true"
+    - "traefik.http.routers.api.tls.certresolver=tlsresolver"
   db:
     container_name: mysql
     image: mysql
